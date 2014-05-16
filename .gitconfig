@@ -1,0 +1,18 @@
+[push]
+	default = simple
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[user]
+	name = Bob Forma
+	email = bobforma@gmail.com
+[core]
+	editor = vi
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
