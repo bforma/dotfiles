@@ -44,6 +44,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
