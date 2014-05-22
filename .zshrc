@@ -117,3 +117,4 @@ export PATH=/Library/PostgreSQL/9.1/bin:$PATH
 
 eval "$(direnv hook zsh)"
 
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
