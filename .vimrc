@@ -1,32 +1,51 @@
 set nocompatible " no compatibility with legacy vi
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle/')
+call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
-let g:ruby_indent_access_modifier_style = 'outdent'
+Bundle 'tpope/vim-dispatch'
+Bundle 'nanotech/jellybeans.vim'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-rails'
-Bundle 'kien/ctrlp.vim'
-Bundle 'AndrewRadev/switch.vim'
-
-set shell=/bin/zsh " maybe /bin/sh?
+set shell=/bin/zsh
 syntax enable
+
+" ====================
+" Jellybeans color scheme
+" ====================
+set t_Co=256 " 256 color mode
+let g:jellybeans_background_color_256=0 " black is black
+colorscheme jellybeans
+set colorcolumn=80,105,115
+highlight ColorColumn  ctermbg=233
+
+" ====================
+" General
+" ====================
 set encoding=utf-8
 set number " show line numbers
 set showcmd " display incomplete commands
 set showmatch " show matching bracers
 set mouse=a " use mouse in all modes
 
-set clipboard=unnamed " yank to clipboard
+" ====================
+" Tmux
+" ====================
+Bundle 'christoomey/vim-tmux-navigator'
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
+" ====================
+" Splits
+" ====================
 set splitbelow " new split right below
 set splitright
 set lazyredraw " only redraw new splits
 
+" ====================
 " Whitespace
+" ====================
 set tabstop=2 shiftwidth=2
 set softtabstop=2
 set expandtab " convert tabs to spaces
@@ -37,13 +56,17 @@ set nofoldenable " no code folding
 set antialias
 set linespace=0 " configure line height
 
+" ====================
 " Searching
+" ====================
 set hlsearch
 set incsearch
 " set ignorecase
 " set smartcase
 
+" ====================
 " Tmp and backup folders
+" ====================
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
@@ -61,17 +84,18 @@ if exists("+undofile")
   set undofile
 endif
 
+" ====================
 " Nerdtree
+" ====================
+Bundle 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " enable vi to close when NERDTree is the only open tab
+let g:ruby_indent_access_modifier_style = 'outdent'
 
 " ====================
-" CtrlP options
-" :help ctrlp-commands
+" CtrlP
 " ====================
+Bundle 'kien/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-nmap <LEADER>rf :CtrlPClearCache<CR>
-
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_switch_buffer = 2
@@ -90,25 +114,72 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" ====================
+" Ruby & Rails
+" ====================
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+
+" ====================
+" Rspec
+" ====================
+Bundle 'thoughtbot/vim-rspec'
+let g:rspec_command = "Dispatch ./bin/rspec {spec}"
+
+" ====================
+" Git integration
+" ====================
+Bundle 'tpope/vim-fugitive'
+
+" ====================
+" TComment
+" ====================
+Bundle 'tomtom/tcomment_vim'
+
+" ====================
+" Switch
+" ====================
+Bundle 'AndrewRadev/switch.vim'
+
+" ====================
+" Keymaps
+" ====================
 let mapleader = ","
 
-" Keymaps
+" General
+noremap <space><space> :w<CR>
+nnoremap <LEADER>bi :source ~/dotfiles/.vimrc<CR>:BundleInstall<CR>
+nnoremap <LEADER>vi :e ~/dotfiles/.vimrc<CR>
+" Searching
 nnoremap <LEADER>f :grep!<SPACE>
 nnoremap <LEADER>F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+" Git
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
+map <Leader>gb :Gblame<CR>
+" vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
-noremap <space><space> :w<CR>
+" TComment
+map <Leader>/ :TComment<CR>
+" Switch
 nnoremap - :Switch<cr>
-" split navigation
+" RSpec
+map <Leader>sf :call RunCurrentSpecFile()<CR>
+map <Leader>sn :call RunNearestSpec()<CR>
+map <Leader>sl :call RunLastSpec()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
+" Split
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-" disable Ex mode
+" Disable Ex mode
 noremap Q <NOP>
-" ruby
+" Ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
+" CtrlP
+nmap <LEADER>rf :CtrlPClearCache<CR>
