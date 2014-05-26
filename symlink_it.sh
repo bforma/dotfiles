@@ -7,7 +7,7 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-files="gemrc gitconfig irbrc rspec vim/ vimrc zshrc"    # list of files/folders to symlink in homedir
+files="gemrc gitconfig git_template irbrc rspec vim vimrc zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
