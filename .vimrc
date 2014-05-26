@@ -153,6 +153,7 @@ nnoremap <LEADER>vi :e ~/dotfiles/.vimrc<CR>
 " Searching
 nnoremap <LEADER>f :grep!<SPACE>
 nnoremap <LEADER>F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+map <Leader>h :noh<CR>
 " Git
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
