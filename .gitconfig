@@ -1,5 +1,5 @@
 [push]
-	default = simple
+	default = current
 [alias]
 	co = checkout
 	ci = commit
@@ -13,6 +13,9 @@
 	email = bobforma@gmail.com
 [core]
 	editor = vi
+  excludesfile = ~/.gitignore
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[init]
+  templatedir = ~/.git_template

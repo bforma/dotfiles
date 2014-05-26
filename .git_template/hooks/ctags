@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+PATH="/usr/local/bin:$PATH"
+trap "rm -f .git/tags.$$" EXIT
+git ls-files -z | xargs -0 ctags --tag-relative -f.git/tags.$$ --exclude=doc --languages=-javascript,sql
+mv .git/tags.$$ .git/tags
