@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,19 +50,18 @@ export LANG=en_US.UTF-8
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
-export EDITOR=vi
-
+export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
 
 # fixes ImageMagick gem installation
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # Ruby GC optimization
-export RUBY_GC_HEAP_INIT_SLOTS=1250000 
-export RUBY_HEAP_SLOTS_INCREMENT=100000 
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1 
-export RUBY_GC_MALLOC_LIMIT=30000000 
-export RUBY_GC_HEAP_FREE_SLOTS=12500 
+export RUBY_GC_HEAP_INIT_SLOTS=1250000
+export RUBY_HEAP_SLOTS_INCREMENT=100000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=30000000
+export RUBY_GC_HEAP_FREE_SLOTS=12500
 
 # rbenv
 export RBENV_ROOT=$HOME/.rbenv
