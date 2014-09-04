@@ -7,7 +7,6 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-dispatch'
-Bundle 'nanotech/jellybeans.vim'
 Bundle 'kana/vim-textobj-user'
 Bundle 'tpope/vim-surround'
 Bundle 'christoomey/vim-tmux-navigator'
@@ -23,6 +22,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'pry'
 Bundle 'jgdavey/vim-blockle'
+Bundle 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on
 
@@ -31,13 +31,14 @@ syntax enable
 set shortmess+=I
 
 " ====================
-" Jellybeans color scheme
+" Color scheme
 " ====================
 set t_Co=256 " 256 color mode
-let g:jellybeans_background_color_256=0 " black is black
-colorscheme jellybeans
+let g:solarized_termcolors=256
 set colorcolumn=80,105,115
 highlight ColorColumn  ctermbg=233
+set background=light
+colorscheme solarized
 
 " ====================
 " General
