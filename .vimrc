@@ -1,14 +1,34 @@
 set nocompatible " no compatibility with legacy vi
+let mapleader = ","
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-
+call vundle#begin()
 Bundle 'gmarik/vundle'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-dispatch'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'tpope/vim-surround'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'AndrewRadev/switch.vim'
+Bundle 'pry'
+Bundle 'jgdavey/vim-blockle'
+call vundle#end()
+filetype plugin indent on
 
 set shell=/bin/zsh
 syntax enable
+set shortmess+=I
 
 " ====================
 " Jellybeans color scheme
@@ -27,11 +47,36 @@ set number " show line numbers
 set showcmd " display incomplete commands
 set showmatch " show matching bracers
 set mouse=a " use mouse in all modes
+runtime macros/matchit.vim
+
+" ====================
+" Cursor
+" ====================
+" change cursor when in insert mode (also works in tmux)
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" ====================
+" Fast switching modes yo
+" ====================
+" make switching modes fast again
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " ====================
 " Tmux
 " ====================
-Bundle 'christoomey/vim-tmux-navigator'
 if $TMUX == ''
   set clipboard+=unnamed
 endif
@@ -46,6 +91,7 @@ set lazyredraw " only redraw new splits
 " ====================
 " Whitespace
 " ====================
+autocmd BufWritePre * :FixWhitespace
 set tabstop=2 shiftwidth=2
 set softtabstop=2
 set expandtab " convert tabs to spaces
@@ -87,14 +133,13 @@ endif
 " ====================
 " Nerdtree
 " ====================
-Bundle 'scrooloose/nerdtree'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " enable vi to close when NERDTree is the only open tab
+map <leader>nf :NERDTreeFind<cr>
 let g:ruby_indent_access_modifier_style = 'outdent'
 
 " ====================
 " CtrlP
 " ====================
-Bundle 'kien/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
@@ -117,43 +162,33 @@ endif
 " ====================
 " Ruby & Rails
 " ====================
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
 
 " ====================
 " Rspec
 " ====================
-Bundle 'thoughtbot/vim-rspec'
 let g:rspec_command = "Dispatch ./bin/rspec {spec}"
 
 " ====================
 " Git integration
 " ====================
-Bundle 'tpope/vim-fugitive'
 
 " ====================
 " TComment
 " ====================
-Bundle 'tomtom/tcomment_vim'
 
 " ====================
 " Switch
 " ====================
-Bundle 'AndrewRadev/switch.vim'
-
-" ====================
-" Keymaps
-" ====================
-let mapleader = ","
 
 " General
 noremap <space><space> :w<CR>
-nnoremap <LEADER>bi :source ~/dotfiles/.vimrc<CR>:BundleInstall<CR>
-nnoremap <LEADER>vi :e ~/dotfiles/.vimrc<CR>
+nnoremap <Leader>bi :source ~/dotfiles/.vimrc<CR>:BundleInstall<CR>
+nnoremap <Leader>vi :e ~/dotfiles/.vimrc<CR>
 " Searching
-nnoremap <LEADER>f :grep!<SPACE>
-nnoremap <LEADER>F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <Leader>f :grep!<SPACE>
+nnoremap <Leader>F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 map <Leader>h :noh<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Git
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
@@ -170,6 +205,8 @@ map <Leader>sf :call RunCurrentSpecFile()<CR>
 map <Leader>sn :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
+" Format JSON
+map <Leader>fj <Esc>:%!python -m json.tool<CR>
 " Split
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -183,4 +220,4 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " CtrlP
-nmap <LEADER>rf :CtrlPClearCache<CR>
+nmap <Leader>rf :CtrlPClearCache<CR>
