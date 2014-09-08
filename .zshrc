@@ -47,8 +47,10 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export ANDROID_HOME=`brew --prefix android`
+
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+export PATH=/Library/PostgreSQL/9.1/bin:/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
@@ -111,8 +113,6 @@ alias pspec='be rake parallel:spec'
 alias spec_int='DISABLE_COVERAGE=true be rspec spec -t integration'
 alias spec_diff="DISABLE_COVERAGE=true git diff --name-only HEAD | grep 'spec/' | xargs be rspec"
 alias prod_dump="be rake db:load_dump\[production\]"
-
-export PATH=/Library/PostgreSQL/9.1/bin:$PATH
 
 eval "$(direnv hook zsh)"
 
