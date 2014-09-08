@@ -49,6 +49,7 @@ set number " show line numbers
 set showcmd " display incomplete commands
 set showmatch " show matching bracers
 set mouse=a " use mouse in all modes
+set cursorline " whereami!?
 runtime macros/matchit.vim
 
 " ====================
