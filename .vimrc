@@ -23,6 +23,7 @@ Bundle 'AndrewRadev/switch.vim'
 Bundle 'pry'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'ecomba/vim-ruby-refactoring'
 call vundle#end()
 filetype plugin indent on
 
