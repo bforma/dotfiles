@@ -19,10 +19,20 @@ root: ~/Documents/projects/workaway/workaway
 # tmux_command: byobu
 
 windows:
-  - editor:
-      layout: main-vertical
+  - editor: vim
+  - rails:
+      layout: tiled
       panes:
-        - vim
-        - guard
-  - server: bundle exec rails s
-  - logs: tail -f log/development.log
+        - console:
+          - bundle exec rails c
+        - server:
+          - bundle exec rails s
+        - logs:
+          - tail -f log/development.log
+        - specs
+  - integration:
+    - ssh bforma@web01.int.reisbalans.nl
+  - acceptance:
+    - ssh bforma@web01.acc.reisbalans.nl
+  - production:
+    - ssh bforma@web01.mijn.reisbalans.nl

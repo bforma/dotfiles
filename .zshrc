@@ -54,6 +54,7 @@ export PATH=/Library/PostgreSQL/9.1/bin:/usr/local/bin:$PATH:/opt/local/bin:/opt
 
 export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
+export DISABLE_AUTO_TITLE=true
 
 # fixes ImageMagick gem installation
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
