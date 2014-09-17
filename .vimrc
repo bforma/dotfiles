@@ -140,6 +140,7 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " enable vi to close when NERDTree is the only open tab
 map <leader>nf :NERDTreeFind<cr>
 let g:ruby_indent_access_modifier_style = 'outdent'
+let NERDTreeShowHidden=1
 
 " ====================
 " CtrlP
