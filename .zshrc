@@ -24,13 +24,13 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -54,7 +54,6 @@ export PATH=/Library/PostgreSQL/9.1/bin:/usr/local/bin:$PATH:/opt/local/bin:/opt
 
 export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
-export DISABLE_AUTO_TITLE=true
 
 # fixes ImageMagick gem installation
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
