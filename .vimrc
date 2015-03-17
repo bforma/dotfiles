@@ -41,6 +41,9 @@ let g:solarized_termcolors=256
 set colorcolumn=80,105,115
 highlight ColorColumn  ctermbg=233
 set background=light
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 " ====================
@@ -52,6 +55,7 @@ set showcmd " display incomplete commands
 set showmatch " show matching bracers
 set mouse=a " use mouse in all modes
 set cursorline " whereami!?
+set laststatus=2
 runtime macros/matchit.vim
 
 " ====================
