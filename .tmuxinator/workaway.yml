@@ -22,7 +22,7 @@ windows:
   - editor: vim
   - specs: ''
   - rails:
-      layout: tiled
+      layout: even-vertical
       panes:
         - console:
           - bundle exec rails c
