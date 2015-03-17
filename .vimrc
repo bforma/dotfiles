@@ -25,6 +25,7 @@ Bundle 'pry'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'tpope/vim-abolish'
 call vundle#end()
 filetype plugin indent on
 
