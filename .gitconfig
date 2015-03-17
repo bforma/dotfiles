@@ -13,6 +13,11 @@
   fixup = commit --amend --no-edit
   amend = commit --amend
   poef = reset --hard
+[merge]
+  stat = true
+  tool = vimdiff
+[mergetool]
+  prompt = false
 [user]
 	name = Bob Forma
 	email = bobforma@gmail.com
