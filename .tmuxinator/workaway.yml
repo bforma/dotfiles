@@ -28,9 +28,6 @@ windows:
           - bundle exec rails c
         - server:
           - bundle exec rails s
-  - integration:
-    - ssh bforma@web01.int.reisbalans.nl
-  - acceptance:
-    - ssh bforma@web01.acc.reisbalans.nl
-  - production:
-    - ssh bforma@web01.mijn.reisbalans.nl
+  - integration: ''
+  - acceptance: ''
+  - production: ''
