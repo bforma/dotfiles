@@ -71,6 +71,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export RUBYLIB=/Applications/RubyMine.app/rb/testing/patch/common:/Applications/RubyMine.app/rb/testing/patch/bdd
 
+set -o vi
+
 alias aliases='vi ~/.zshrc; source ~/.zshrc'
 alias ws='cd /Users/bobforma/Documents/projects/$1'
 alias fr='cd /Users/bobforma/Documents/projects/freemle-sinatra'
