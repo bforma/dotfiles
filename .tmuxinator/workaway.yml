@@ -20,6 +20,7 @@ root: ~/Documents/projects/workaway/workaway
 
 windows:
   - editor: vim
+  - specs: ''
   - rails:
       layout: tiled
       panes:
