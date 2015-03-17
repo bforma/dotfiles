@@ -99,8 +99,6 @@ alias grc='git rebase --continue'
 alias gs='git status'
 alias gp='git push'
 alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
-alias grh='git reset --hard && git clean -df'
-alias poef='grh'
 alias git-prune-local='git checkout master && git remote prune origin && git fetch && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias amend='git commit --amend'
 
