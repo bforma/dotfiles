@@ -8,6 +8,11 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
+  dump = cat-file -p
+  l = log --pretty=format:'%Cred%h %Cgreen%<(6,trunc)%cr %Cblue%<(20)%an %Creset%<(51,trunc)%s %Cred%<(20)%d'
+  fixup = commit --amend --no-edit
+  amend = commit --amend
+  poef = reset --hard
 [user]
 	name = Bob Forma
 	email = bobforma@gmail.com
