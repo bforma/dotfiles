@@ -49,6 +49,10 @@ export LANG=en_US.UTF-8
 
 export ANDROID_HOME=`brew --prefix android`
 
+export DOCKER_CERT_PATH=/Users/bobforma/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376
+
 # Customize to your needs...
 export PATH=/Library/PostgreSQL/9.1/bin:/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
