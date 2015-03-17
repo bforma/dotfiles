@@ -176,7 +176,8 @@ endif
 " ====================
 " Rspec
 " ====================
-let g:rspec_command = "Dispatch ./bin/rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
 
 " ====================
 " Git integration
