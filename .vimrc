@@ -4,28 +4,34 @@ let mapleader = ","
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-dispatch'
-Bundle 'kana/vim-textobj-user'
-Bundle 'tpope/vim-surround'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'gmarik/Vundle.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'AndrewRadev/switch.vim'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'bling/vim-airline'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'jgdavey/vim-blockle'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'pry'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'pry'
-Bundle 'jgdavey/vim-blockle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
 call vundle#end()
 filetype plugin indent on
 
@@ -45,6 +51,7 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_termtrans = 1
 colorscheme solarized
+let g:airline_theme = "solarized"
 
 " ====================
 " General
