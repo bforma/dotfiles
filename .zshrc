@@ -53,8 +53,6 @@ export DOCKER_CERT_PATH=/Users/bobforma/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376
 
-export PATH=/usr/local/bin:$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
 export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
 
@@ -67,6 +65,8 @@ export RUBY_HEAP_SLOTS_INCREMENT=100000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=30000000
 export RUBY_GC_HEAP_FREE_SLOTS=12500
+
+export PATH="./bin::$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 
 # rbenv
 export RBENV_ROOT=$HOME/.rbenv
