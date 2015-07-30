@@ -78,8 +78,6 @@ export RUBYLIB=/Applications/RubyMine.app/rb/testing/patch/common:/Applications/
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-set -o vi
-
 alias aliases='vi ~/.zshrc; source ~/.zshrc'
 alias ws='cd /Users/bobforma/Documents/projects/$1'
 alias fr='cd /Users/bobforma/Documents/projects/freemle-sinatra'
