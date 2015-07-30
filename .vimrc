@@ -171,6 +171,7 @@ endif
 " ====================
 " Ruby & Rails
 " ====================
+let g:blockle_mapping = '<Leader>bb'
 
 " ====================
 " Rspec
