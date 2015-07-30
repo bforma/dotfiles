@@ -28,6 +28,4 @@ windows:
           - bundle exec rails c
         - server:
           - bundle exec rails s
-  - integration: ''
-  - acceptance: ''
-  - production: ''
+  - servers: ''
