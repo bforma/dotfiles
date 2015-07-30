@@ -38,7 +38,7 @@ set shortmess+=I
 " ====================
 set t_Co=256 " 256 color mode
 let g:solarized_termcolors=256
-set colorcolumn=80,105,115
+set colorcolumn=105
 highlight ColorColumn  ctermbg=233
 set background=light
 let g:solarized_visibility = "high"
