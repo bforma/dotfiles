@@ -69,6 +69,7 @@ export RUBY_GC_HEAP_FREE_SLOTS=12500
 export PATH="./bin::$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 
 # rbenv
+eval "$(rbenv init -)"
 export RBENV_ROOT=$HOME/.rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
