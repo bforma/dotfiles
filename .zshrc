@@ -102,20 +102,16 @@ alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Cre
 alias git-prune-local='git checkout master && git remote prune origin && git fetch && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias amend='git commit --amend'
 
-alias s='rails s'
+alias s='foreman s'
 alias fs='be bin/freemle s'
 alias routes='be rake routes'
 alias be='bundle exec'
-alias migrate='be rake db:migrate db:test:clone && be rake parallel:prepare'
+alias migrate='be rake db:migrate'
 alias rollback='be rake db:rollback'
 alias pdb_reset='be rake db:drop db:create db:migrate db:test:clone && be rake db:seed && be rake parallel:prepare'
 alias db_reset='be rake db:drop db:create db:migrate db:test:clone && be rake db:seed'
 alias spec='DISABLE_COVERAGE=true be rspec spec'
-alias cspec='ENABLE_COVERAGE=true be rspec spec'
-alias pspec='be rake parallel:spec'
-alias spec_int='DISABLE_COVERAGE=true be rspec spec -t integration'
-alias spec_diff="DISABLE_COVERAGE=true git diff --name-only HEAD | grep 'spec/' | xargs be rspec"
-alias prod_dump="be rake db:load_dump\[production\]"
+alias pspec='DISABLE_SPRING=1 be rake spec'
 
 eval "$(direnv hook zsh)"
 
