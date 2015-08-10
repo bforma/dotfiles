@@ -64,6 +64,7 @@ set mouse=a " use mouse in all modes
 set cursorline " whereami!?
 set laststatus=2
 runtime macros/matchit.vim
+set clipboard=unnamed
 
 " ====================
 " Cursor
@@ -88,13 +89,6 @@ if ! has('gui_running')
     au InsertEnter * set timeoutlen=0
     au InsertLeave * set timeoutlen=1000
   augroup END
-endif
-
-" ====================
-" Tmux
-" ====================
-if $TMUX == ''
-  set clipboard+=unnamed
 endif
 
 " ====================
