@@ -70,9 +70,13 @@ export RUBY_GC_HEAP_FREE_SLOTS=12500
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export RUBYLIB=/Applications/RubyMine.app/rb/testing/patch/common:/Applications/RubyMine.app/rb/testing/patch/bdd
+
 # nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+export APPLE_DEVELOPER_PROGRAM_APPLE_ID=bobforma@gmail.com
+export ITUNES_CONNECT_APPLE_ID=bforma+workaway@zilverline.com
 
 alias aliases='vi ~/.zshrc; source ~/.zshrc'
 alias ws='cd /Users/bobforma/Documents/projects/$1'
