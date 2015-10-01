@@ -215,8 +215,6 @@ map <Leader>gb :Gblame<CR>
 " vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-" TComment
-map <Leader>/ :TComment<CR>
 " Switch
 nnoremap - :Switch<cr>
 " RSpec
