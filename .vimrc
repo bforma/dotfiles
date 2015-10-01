@@ -192,16 +192,12 @@ let g:rspec_command = "Dispatch bundle exec rspec --format documentation {spec}"
 let g:rspec_runner = "os_x_iterm"
 
 " ====================
-" Git integration
+" Quickfix window
 " ====================
-
-" ====================
-" TComment
-" ====================
-
-" ====================
-" Switch
-" ====================
+au FileType qf call AdjustWindowHeight(3, 15)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
 
 " General
 noremap <space><space> :w<CR>
