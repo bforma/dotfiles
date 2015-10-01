@@ -31,6 +31,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 call vundle#end()
 filetype plugin indent on
