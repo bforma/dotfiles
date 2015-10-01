@@ -41,6 +41,7 @@ Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'milkypostman/vim-togglelist'
 call vundle#end()
 filetype plugin indent on
 
