@@ -21,7 +21,15 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'pry'
 Bundle 'scrooloose/nerdtree'
+
 Bundle 'scrooloose/syntastic'
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='☹'
+let g:syntastic_style_error_symbol='⚠'
+let g:syntastic_ruby_checkers = ['mri'] ", 'rubocop']
+
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
