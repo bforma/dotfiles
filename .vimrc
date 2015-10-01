@@ -187,7 +187,8 @@ let g:blockle_mapping = '<Leader>bb'
 " ====================
 " Rspec
 " ====================
-let g:rspec_command = "Dispatch ./bin/rspec {spec}"
+let g:dispatch_compilers = {'bundle exec': ''}
+let g:rspec_command = "Dispatch bundle exec rspec --format documentation {spec}"
 let g:rspec_runner = "os_x_iterm"
 
 " ====================
