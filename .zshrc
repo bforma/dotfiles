@@ -66,8 +66,6 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=30000000
 export RUBY_GC_HEAP_FREE_SLOTS=12500
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
-
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
