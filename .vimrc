@@ -38,6 +38,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
@@ -66,13 +67,10 @@ let g:airline_theme = "solarized"
 " ====================
 " General
 " ====================
-set encoding=utf-8
 set number " show line numbers
-set showcmd " display incomplete commands
 set showmatch " show matching bracers
 set mouse=a " use mouse in all modes
 set cursorline " whereami!?
-set laststatus=2
 runtime macros/matchit.vim
 set clipboard=unnamed
 
@@ -89,19 +87,6 @@ else
 endif
 
 " ====================
-" Fast switching modes yo
-" ====================
-" make switching modes fast again
-if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
-
-" ====================
 " Splits
 " ====================
 set splitbelow " new split right below
@@ -115,9 +100,6 @@ autocmd BufWritePre * :FixWhitespace
 set tabstop=2 shiftwidth=2
 set softtabstop=2
 set expandtab " convert tabs to spaces
-set backspace=indent,eol,start " use backspace properly
-set ruler " show cursor pos
-set autoindent
 set nofoldenable " no code folding
 set antialias
 set linespace=0 " configure line height
@@ -126,7 +108,6 @@ set linespace=0 " configure line height
 " Searching
 " ====================
 set hlsearch
-set incsearch
 " set ignorecase
 " set smartcase
 
