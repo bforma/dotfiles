@@ -79,7 +79,6 @@ export APPLE_DEVELOPER_PROGRAM_APPLE_ID=bobforma@gmail.com
 export ITUNES_CONNECT_APPLE_ID=bforma+workaway@zilverline.com
 
 alias aliases='vi ~/.zshrc; source ~/.zshrc'
-alias bi='bundle install'
 alias gm='git checkout master'
 alias gpr='git pull -r'
 alias gs='git status'
@@ -88,13 +87,18 @@ alias git-prune-local='git checkout master && git remote prune origin && git fet
 alias amend='git commit --amend'
 
 alias s='foreman s'
+alias bi='bundle install'
 alias be='bundle exec'
-alias migrate='be rake db:migrate'
-alias rollback='be rake db:rollback'
-alias pdb_reset='be rake db:drop db:create db:migrate db:test:clone && be rake db:seed && be rake parallel:prepare'
-alias db_reset='be rake db:drop db:create db:migrate db:test:clone && be rake db:seed'
-alias spec='DISABLE_COVERAGE=true be rspec spec'
-alias pspec='DISABLE_SPRING=1 be rake spec'
+alias migrate='rake db:migrate'
+alias rollback='rake db:rollback'
+alias pdb_reset='rake db:drop db:create db:migrate db:test:clone && be rake db:seed && be rake parallel:prepare'
+alias db_reset='rake db:drop db:create db:migrate db:test:clone && be rake db:seed'
+alias spec='DISABLE_COVERAGE=true rspec spec'
+alias pspec='DISABLE_SPRING=1 rake spec'
+
+alias rails='be rails'
+alias rake='be rake'
+alias rspec='be rspec'
 
 eval "$(direnv hook zsh)"
 
