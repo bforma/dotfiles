@@ -174,7 +174,7 @@ let g:rspec_runner = "os_x_iterm"
 " ====================
 " Quickfix window
 " ====================
-au FileType qf call AdjustWindowHeight(3, 15)
+au FileType qf call AdjustWindowHeight(15, 15)
 function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
