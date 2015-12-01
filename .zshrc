@@ -93,7 +93,7 @@ alias migrate='rake db:migrate'
 alias rollback='rake db:rollback'
 alias pdb_reset='rake db:drop db:create db:migrate db:test:clone && rake db:seed && rake parallel:prepare'
 alias db_reset='rake db:drop db:create db:migrate db:test:clone && rake db:seed'
-alias spec='DISABLE_COVERAGE=true rspec spec'
+alias spec='rspec spec'
 alias pspec='DISABLE_SPRING=1 rake spec'
 
 alias rails='be rails'
