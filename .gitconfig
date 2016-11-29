@@ -2,6 +2,7 @@
 	default = current
 [alias]
 	co = checkout
+  cob = checkout -b
 	ci = commit
 	st = status
 	br = branch

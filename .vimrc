@@ -5,30 +5,35 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'bling/vim-airline'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'compactcode/alternate.vim'
+Bundle 'compactcode/open.vim'
+Bundle 'editorconfig/editorconfig-vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'ElmCast/elm-vim'
+Bundle 'flowtype/vim-flow'
+Bundle 'gorodinskiy/vim-coloresque'
+Bundle 'isRuslan/vim-es6'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'milkypostman/vim-togglelist'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'pangloss/vim-javascript'
 Bundle 'pry'
+Bundle 'rhysd/vim-crystal'
 Bundle 'scrooloose/nerdtree'
-
 Bundle 'scrooloose/syntastic'
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='☹'
-let g:syntastic_style_error_symbol='⚠'
-let g:syntastic_ruby_checkers = ['mri'] ", 'rubocop']
-
+" let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint']
+let ruby_no_expensive=1
+Bundle 'sheerun/vim-polyglot'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
@@ -40,8 +45,9 @@ Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'milkypostman/vim-togglelist'
 call vundle#end()
 filetype plugin indent on
 
@@ -54,7 +60,7 @@ set shortmess+=I
 " ====================
 set t_Co=256 " 256 color mode
 let g:solarized_termcolors=256
-set colorcolumn=105
+set colorcolumn=120
 highlight ColorColumn  ctermbg=233
 set background=light
 let g:solarized_visibility = "high"
@@ -172,6 +178,11 @@ let g:rspec_command = "Dispatch bundle exec rspec --format documentation {spec}"
 let g:rspec_runner = "os_x_iterm"
 
 " ====================
+" Elm
+" ====================
+let g:elm_format_autosave = 1
+
+" ====================
 " Quickfix window
 " ====================
 au FileType qf call AdjustWindowHeight(15, 15)
@@ -183,6 +194,8 @@ endfunction
 noremap <space><space> :w<CR>
 nnoremap <Leader>bi :source ~/dotfiles/.vimrc<CR>:BundleInstall<CR>
 nnoremap <Leader>vi :e ~/dotfiles/.vimrc<CR>
+" Alternate files
+nnoremap <Leader>. :Open(alternate#FindAlternate())<CR>
 " Searching
 nnoremap <Leader>f :grep!<SPACE>
 nnoremap <Leader>F :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -203,7 +216,7 @@ map <Leader>sn :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 " Format JSON
-map <Leader>fj <Esc>:%!python -m json.tool<CR>
+map <Leader>jf <Esc>:%!python -m json.tool<CR>
 " Split
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

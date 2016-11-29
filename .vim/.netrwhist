@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/Users/bobforma/Documents/projects/freemle-ruby/.bundle'
+let g:netrw_dirhist_2='/Users/bobforma/Documents/projects/photospective-lambdas/create-photo-thumbnail'

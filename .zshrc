@@ -53,8 +53,15 @@ export DOCKER_CERT_PATH=/Users/bobforma/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376
 
+# eval $(docker-machine env default)
+
 export EDITOR=vim
 export WKHTMLTOPDF_BINARY=/usr/local/bin/wkhtmltopdf
+
+# Setup CUDA
+export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:/usr/local/libcudnn/lib:$DYLD_LIBRARY_PATH"
+export PATH="$CUDA_HOME/bin:$PATH"
 
 # fixes ImageMagick gem installation
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
@@ -68,15 +75,18 @@ export RUBY_GC_HEAP_FREE_SLOTS=12500
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="./bin:$PATH"
 
-export RUBYLIB=/Applications/RubyMine.app/rb/testing/patch/common:/Applications/RubyMine.app/rb/testing/patch/bdd
-
-# nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export APPLE_DEVELOPER_PROGRAM_APPLE_ID=bobforma@gmail.com
 export ITUNES_CONNECT_APPLE_ID=bforma+workaway@zilverline.com
+
+NUMBER_OF_CORES=`sysctl -n hw.ncpu`
+export PARALLEL_TEST_PROCESSORS=`expr $NUMBER_OF_CORES - 1`
+export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+
+export LETTER_OPENER=yes
+export PHANTOMJS_BIN=/usr/local/bin/phantomjs
 
 alias aliases='vi ~/.zshrc; source ~/.zshrc'
 alias gm='git checkout master'
@@ -86,20 +96,21 @@ alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Cre
 alias git-prune-local='git checkout master && git remote prune origin && git fetch && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias amend='git commit --amend'
 
-alias s='foreman s'
-alias bi='bundle install'
 alias be='bundle exec'
-alias migrate='rake db:migrate'
-alias rollback='rake db:rollback'
-alias pdb_reset='rake db:drop db:create db:migrate db:test:clone && rake db:seed && rake parallel:prepare'
-alias db_reset='rake db:drop db:create db:migrate db:test:clone && rake db:seed'
-alias spec='rspec spec'
-alias pspec='DISABLE_SPRING=1 rake spec'
-
 alias rails='be rails'
 alias rake='be rake'
 alias rspec='be rspec'
+alias s='foreman s'
+alias c='rails c'
+alias pspec='DISABLE_SPRING=1 RAILS_ENV=test bundle exec parallel_rspec --runtime-log tmp/parallel_runtime_rspec.log -- --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_rspec.log --format progress -- spec/'
 
 eval "$(direnv hook zsh)"
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+export NODE_ENV=development
+export RAILS_ENV=development
+
+export NVM_DIR="/Users/bobforma/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh"
