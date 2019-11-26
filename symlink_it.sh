@@ -7,7 +7,7 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-files="ansible.cfg bundle gemrc gitconfig git_template irbrc rspec vim vimrc zshrc zshenv tmuxinator"    # list of files/folders to symlink in homedir
+files="ansible.cfg bundle gemrc gitconfig git_template irbrc rspec vim vimrc zshrc zshenv tmuxinator tmux.conf"    # list of files/folders to symlink in homedir
 
 ##########
 
