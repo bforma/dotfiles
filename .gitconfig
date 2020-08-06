@@ -12,7 +12,6 @@
   l = log --pretty=format:'%Cred%h %Cgreen%<(6,trunc)%cr %Cblue%<(20)%an %Creset%<(51,trunc)%s %Cred%<(20)%d'
   fixup = commit --amend --no-edit
   amend = commit --amend
-  poef = reset --hard
 [merge]
   stat = true
   tool = vimdiff
