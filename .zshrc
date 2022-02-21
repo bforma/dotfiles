@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -103,15 +110,19 @@ fi
 # Editor
 export EDITOR=vim
 
+# Ulimits
+ulimit -n 1024
+
 # Autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-# Ruby GC optimization
+# Ruby
 export RUBY_GC_HEAP_INIT_SLOTS=1250000
 export RUBY_HEAP_SLOTS_INCREMENT=100000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=30000000
 export RUBY_GC_HEAP_FREE_SLOTS=12500
+export RUBYOPT=-W0
 
 # Rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -119,6 +130,32 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # NVM
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+# Auto-load .nvmrc
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # Parallel
 NUMBER_OF_CORES=`sysctl -n hw.ncpu`
@@ -138,18 +175,26 @@ alias rake='be rake'
 alias rspec='be rspec'
 alias s='PORT=3000 foreman start'
 alias c='rails c'
+alias fix_enter='stty sane'
 
 # PATH
 export PATH="./bin:node_modules/.bin:$PATH"
 
 # More ENV
-export RAILS_ENV=development
-export RACK_ENV=development
 export NODE_ENV=development
 export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-export JORTT_PUMA_PORT=3000
-export JORTT_PUSHER_PORT=4000
-export WEBSOCKET_URL=http://localhost:4000
-export NO_DEBUG=1
 export LETTER_OPENER=yes
 export RUBOCOP_DAEMON_USE_BUNDLER=true
+
+# Jortt ENV
+# export JORTT_PUMA_PORT=3000
+# export JORTT_PUSHER_PORT=4000
+# export WEBSOCKET_URL=http://localhost:4000
+export NO_DEBUG=1
+# export JOTT_LOGIN_BASE_URL=http://localhost:3000
+export IN_IDE=1
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -s "/Users/bobforma/.jabba/jabba.sh" ] && source "/Users/bobforma/.jabba/jabba.sh"
