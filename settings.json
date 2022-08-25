@@ -1,0 +1,95 @@
+{
+  // Editor
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.rulers": [
+    120
+  ],
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnSaveTimeout": 5000,
+  // Workbench
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "none",
+  // Files
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    "*.def": "dotjs"
+  },
+  // Status bar
+  "ActiveFileInStatusBar.enable": true,
+  "ActiveFileInStatusBar.fullpath": false,
+  "ActiveFileInStatusBar.revealFile": false,
+  "git.autofetch": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  // Solargraph
+  "solargraph.logLevel": "debug",
+  "solargraph.commandPath": "/Users/bobforma/.rbenv/shims/solargraph",
+  // Circle CI
+  "circleci.apiKey": "be92c5daf519e6d03fbfd6cf7cf4841bf001e421",
+  // Code actions
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // Ruby
+  "[ruby]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "ruby.format": "rubocop",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    }
+  },
+  // Styling (CSS etc.)
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": false,
+  // Javascript
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // ESlint
+  "eslint.enable": true,
+  // "eslint.autoFixOnSave": true,
+  // JSON
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // SQL
+  "[sql]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  // YAML
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "yaml.format.enable": false,
+  "yaml.validate": false,
+  "extensions.ignoreRecommendations": false,
+  "workbench.sideBar.location": "left",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "window.zoomLevel": 2,
+  "githubPullRequests.pullBranch": "never",
+  // Prettier
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.stylelint": true
+  // }
+}
