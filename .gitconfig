@@ -30,3 +30,5 @@
   templatedir = ~/.git_template
 [credential]
 	helper = osxkeychain
+[pull]
+	rebase = false
