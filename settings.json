@@ -29,8 +29,6 @@
   // Solargraph
   "solargraph.logLevel": "debug",
   "solargraph.commandPath": "/Users/bobforma/.rbenv/shims/solargraph",
-  // Circle CI
-  "circleci.apiKey": "be92c5daf519e6d03fbfd6cf7cf4841bf001e421",
   // Code actions
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
