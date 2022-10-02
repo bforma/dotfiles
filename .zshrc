@@ -174,6 +174,7 @@ export PATH="./bin:node_modules/.bin:$PATH"
 
 # More ENV
 export NODE_ENV=development
+export RAILS_ENV=development
 export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 export LETTER_OPENER=yes
 export RUBOCOP_DAEMON_USE_BUNDLER=true
