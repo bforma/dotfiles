@@ -179,14 +179,6 @@ export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 export LETTER_OPENER=yes
 export RUBOCOP_DAEMON_USE_BUNDLER=true
 
-# Jortt ENV
-# export JORTT_PUMA_PORT=3000
-# export JORTT_PUSHER_PORT=4000
-# export WEBSOCKET_URL=http://localhost:4000
-export NO_DEBUG=1
-# export JOTT_LOGIN_BASE_URL=http://localhost:3000
-export IN_IDE=1
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
