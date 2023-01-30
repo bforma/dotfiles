@@ -158,7 +158,7 @@ alias aliases='vi ~/.zshrc; source ~/.zshrc'
 alias gm='git checkout master'
 alias gpr='git pull -r'
 alias gs='git status'
-alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
+alias gl="git log --pretty=format:'%C(yellow)%H %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias git-prune-local='git checkout master && git remote prune origin && git fetch && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias amend='git commit --amend'
 alias be='bundle exec'
