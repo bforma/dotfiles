@@ -165,7 +165,7 @@ alias be='bundle exec'
 alias rails='be rails'
 alias rake='be rake'
 alias rspec='be rspec'
-alias s='foreman start'
+alias s='./bin/dev'
 alias c='rails c'
 alias fix_enter='stty sane'
 
