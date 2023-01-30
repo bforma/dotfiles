@@ -20,6 +20,7 @@
 [user]
 	name = Bob Forma
 	email = bobforma@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIArVIyNjEwYMaopoTqsBz72ufcNX5m35ZlRtEvL+C5bp
 [core]
 	editor = vim
   excludesfile = ~/.gitignore
@@ -32,3 +33,9 @@
 	helper = osxkeychain
 [pull]
 	rebase = false
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
